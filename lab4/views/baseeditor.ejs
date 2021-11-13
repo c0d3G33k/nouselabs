@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test.css">
+    <title>Lab-4</title>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Email Template editor</h1>
+    </div>
+    <form action="/lab1" method="POST">
+        <div class="form-group">
+            <textarea class="form-control" id="" rows="7" name="data"></textarea><br>
+            <div class="text-center">
+                <input type="submit" class="btn btn-primary" name="submit" id="submit">
+            </div>
+        </div> 
+    </form>
+    <% if(data) { %>
+    <div id="output" class="text-center"><%- data %></div>
+    <% } else {} %>   
+    <script src="jtest.js"></script>
+    <script src="test.js"></script>
+</body>
+</html>
