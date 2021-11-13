@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>Lab-5</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+          <h1>Login</h1>
+        </div><br>
+        <form action="/login" method="POST">
+
+            <div class="form-group">
+                <label for="email"><b>User Email:</b></label>
+                <input type="email" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="password"><b>User Password:</b></label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <input type="submit" class="btn btn-primary" value="login">
+        </form><br>
+        <a href="/register">register!</a><br>
+        <a href="/recovery">Recovery</a>
+        <br>
+        <% if (messages.error) { %>   
+            <div class="alert alert-danger">
+                <%= messages.error %>
+            </div>
+        <% } %>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
