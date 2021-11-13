@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-xss/0.3.3/xss.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>Lab-6</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+          <h1>Template Editor!</h1>
+        </div><br>
+        <div class="row">
+            <textarea name="data" class="form-control" rows="5"></textarea>
+            <input type="submit" name="submit" id="submit" class="btn btn-primary"><br>
+        </div>
+        <br><br>
+        <div class="row">
+            <h1>Preview Data</h1>
+        </div>
+        <div id="output"></div>
+        <br>
+    </div>
+    <script>
+        let url = new URL(window.location.href);
+        let param1 = url.searchParams.get('ln');
+        let defaultLanguage = $.extend(true,{}, JSON.parse(param1));
+        window.localStorage.setItem("defaultLanguage", defaultLanguage.lang);
+
+        let s = document.getElementById('submit');
+        s.onclick = ()=>{
+
+            let dirtyData = document.querySelector('textarea').value;
+            let cleanData = filterXSS(dirtyData);
+            document.querySelector('#output').innerHTML = cleanData;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
